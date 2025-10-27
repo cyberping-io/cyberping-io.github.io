@@ -47,6 +47,13 @@ A modern landing page for CyberPing.io - a SaaS platform that monitors API laten
 - **Progression**: User scrolls → Sees logos/testimonials → Trust increases → More likely to convert
 - **Success criteria**: Recognizable brands or compelling testimonials displayed
 
+### Customer Testimonials
+- **Functionality**: Displays detailed customer testimonials with photos, quotes, names, roles, and companies in a grid layout
+- **Purpose**: Build trust through authentic customer stories and experiences, showcasing real-world value
+- **Trigger**: Scroll into view
+- **Progression**: User scrolls → Cards animate in → Reads testimonials → Sees diverse customers → Trust and credibility increase
+- **Success criteria**: 6 testimonials with photos/avatars, clear attribution, responsive 3-column grid, smooth animations
+
 ### Footer with SEO Links
 - **Functionality**: Navigation links, legal pages, social links, contact information
 - **Purpose**: SEO optimization, accessibility, professional completion
