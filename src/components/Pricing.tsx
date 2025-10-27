@@ -6,13 +6,28 @@ import { motion } from "framer-motion"
 
 const plans = [
   {
+    name: "Free",
+    price: "0",
+    description: "Get started with essential monitoring",
+    features: [
+      "Monitor up to 5 endpoints",
+      "5 monitoring locations",
+      "10 minute intervals",
+      "Email alerts for downtime",
+      "24 hour data retention",
+      "Community support"
+    ],
+    cta: "Get Started Free",
+    popular: false
+  },
+  {
     name: "Starter",
     price: "29",
     description: "Perfect for small projects and startups",
     features: [
+      "Monitor up to 25 endpoints",
       "10 monitoring locations",
       "5 minute intervals",
-      "1,000 checks per month",
       "Email alerts",
       "7 day data retention",
       "Community support"
@@ -25,9 +40,9 @@ const plans = [
     price: "99",
     description: "For growing teams and businesses",
     features: [
+      "Monitor up to 100 endpoints",
       "30 monitoring locations",
       "1 minute intervals",
-      "10,000 checks per month",
       "Email & Slack alerts",
       "30 day data retention",
       "Priority support",
@@ -42,9 +57,9 @@ const plans = [
     price: "Custom",
     description: "Advanced features for large organizations",
     features: [
+      "Unlimited endpoints",
       "50+ monitoring locations",
       "Real-time intervals (10s)",
-      "Unlimited checks",
       "All alert channels + webhooks",
       "Unlimited data retention",
       "Dedicated support",
@@ -72,11 +87,11 @@ export function Pricing() {
             Simple, transparent pricing
           </h2>
           <p className="text-base sm:text-lg md:text-xl text-muted-foreground">
-            Choose the perfect plan for your needs. All plans include a 14-day free trial.
+            Start free with 5 endpoints and scale as you grow. All paid plans include a 14-day free trial.
           </p>
         </motion.div>
         
-        <div className="grid md:grid-cols-3 gap-6 sm:gap-8 max-w-7xl mx-auto">
+        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8 max-w-7xl mx-auto">
           {plans.map((plan, index) => (
             <motion.div
               key={plan.name}
@@ -86,7 +101,7 @@ export function Pricing() {
               transition={{ duration: 0.6, delay: index * 0.1 }}
               className="relative"
             >
-              <Card className={`p-6 sm:p-8 h-full flex flex-col ${plan.popular ? 'border-accent shadow-xl md:scale-105' : ''}`}>
+              <Card className={`p-6 sm:p-8 h-full flex flex-col ${plan.popular ? 'border-accent shadow-xl lg:scale-105' : ''}`}>
                 {plan.popular && (
                   <Badge className="absolute -top-3 left-1/2 -translate-x-1/2 bg-accent text-accent-foreground">
                     Most Popular
