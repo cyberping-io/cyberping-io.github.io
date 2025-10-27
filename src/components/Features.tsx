@@ -44,24 +44,24 @@ const features = [
 
 export function Features() {
   return (
-    <section className="py-24 md:py-32 bg-muted/30">
-      <div className="container px-6 lg:px-8">
+    <section id="features" className="py-16 sm:py-20 md:py-24 lg:py-32 bg-muted/30">
+      <div className="container px-4 sm:px-6 lg:px-8">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className="text-center max-w-3xl mx-auto mb-16"
+          className="text-center max-w-3xl mx-auto mb-12 sm:mb-16"
         >
-          <h2 className="text-4xl md:text-5xl font-bold mb-6">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-4 sm:mb-6">
             Everything you need to monitor API performance
           </h2>
-          <p className="text-xl text-muted-foreground">
+          <p className="text-base sm:text-lg md:text-xl text-muted-foreground">
             Powerful features designed for developers and businesses who demand excellence
           </p>
         </motion.div>
         
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 md:gap-8">
           {features.map((feature, index) => (
             <motion.div
               key={feature.title}
@@ -70,12 +70,12 @@ export function Features() {
               viewport={{ once: true }}
               transition={{ duration: 0.6, delay: index * 0.1 }}
             >
-              <Card className="p-8 h-full hover:shadow-lg hover:border-accent/50 transition-all duration-300 group">
-                <div className="w-12 h-12 bg-accent/10 rounded-lg flex items-center justify-center mb-6 group-hover:bg-accent/20 transition-colors">
-                  <feature.icon size={24} className="text-accent" weight="duotone" />
+              <Card className="p-6 sm:p-8 h-full hover:shadow-lg hover:border-accent/50 transition-all duration-300 group">
+                <div className="w-10 h-10 sm:w-12 sm:h-12 bg-accent/10 rounded-lg flex items-center justify-center mb-4 sm:mb-6 group-hover:bg-accent/20 transition-colors">
+                  <feature.icon size={20} className="sm:w-6 sm:h-6 text-accent" weight="duotone" />
                 </div>
-                <h3 className="text-xl font-semibold mb-3">{feature.title}</h3>
-                <p className="text-muted-foreground leading-relaxed">
+                <h3 className="text-lg sm:text-xl font-semibold mb-2 sm:mb-3">{feature.title}</h3>
+                <p className="text-sm sm:text-base text-muted-foreground leading-relaxed">
                   {feature.description}
                 </p>
               </Card>

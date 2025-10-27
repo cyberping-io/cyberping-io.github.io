@@ -69,7 +69,7 @@ export function Globe() {
   }, [])
 
   return (
-    <div className="relative w-full aspect-[4/3] bg-card/50 backdrop-blur-sm rounded-2xl border border-border/50 overflow-hidden shadow-2xl">
+    <div className="relative w-full aspect-[4/3] bg-card/50 backdrop-blur-sm rounded-xl sm:rounded-2xl border border-border/50 overflow-hidden shadow-2xl">
       <canvas
         ref={canvasRef}
         className="absolute inset-0 w-full h-full"
@@ -87,11 +87,11 @@ export function Globe() {
           }}
         >
           <div className="relative">
-            <div className="w-3 h-3 bg-accent rounded-full animate-pulse-dot" />
-            <div className="absolute inset-0 w-3 h-3 bg-accent/30 rounded-full animate-ping" style={{ animationDelay: `${location.delay}s` }} />
+            <div className="w-2 h-2 sm:w-3 sm:h-3 bg-accent rounded-full animate-pulse-dot" />
+            <div className="absolute inset-0 w-2 h-2 sm:w-3 sm:h-3 bg-accent/30 rounded-full animate-ping" style={{ animationDelay: `${location.delay}s` }} />
           </div>
           
-          <div className="absolute top-4 left-1/2 -translate-x-1/2 whitespace-nowrap">
+          <div className="absolute top-3 sm:top-4 left-1/2 -translate-x-1/2 whitespace-nowrap hidden sm:block">
             <div className="text-xs font-medium text-foreground bg-card/90 backdrop-blur-sm px-2 py-1 rounded border border-border/50 shadow-lg">
               {location.name}
             </div>
@@ -99,12 +99,13 @@ export function Globe() {
         </div>
       ))}
       
-      <div className="absolute bottom-4 right-4 flex items-center gap-2 text-xs text-muted-foreground bg-card/90 backdrop-blur-sm px-3 py-2 rounded-lg border border-border/50">
-        <span className="relative flex h-2 w-2">
+      <div className="absolute bottom-2 sm:bottom-4 right-2 sm:right-4 flex items-center gap-1.5 sm:gap-2 text-[10px] sm:text-xs text-muted-foreground bg-card/90 backdrop-blur-sm px-2 sm:px-3 py-1.5 sm:py-2 rounded-lg border border-border/50">
+        <span className="relative flex h-1.5 w-1.5 sm:h-2 sm:w-2">
           <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-500 opacity-75"></span>
-          <span className="relative inline-flex rounded-full h-2 w-2 bg-green-500"></span>
+          <span className="relative inline-flex rounded-full h-1.5 w-1.5 sm:h-2 sm:w-2 bg-green-500"></span>
         </span>
-        All systems operational
+        <span className="hidden xs:inline">All systems operational</span>
+        <span className="xs:hidden">Operational</span>
       </div>
     </div>
   )
