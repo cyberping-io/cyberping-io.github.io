@@ -1,28 +1,562 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>CyberPing - Multi-Region API Latency Monitoring | Global Performance Testing</title>
-    <meta name="description" content="Monitor your API latency performance across multiple global regions in real-time. CyberPing provides comprehensive latency testing and monitoring for your APIs worldwide.">
-    <meta name="keywords" content="API monitoring, latency testing, multi-region monitoring, API performance, global latency, network monitoring, API testing">
-    <meta property="og:title" content="CyberPing - Multi-Region API Latency Monitoring">
-    <meta property="og:description" content="Monitor your API latency performance across multiple global regions in real-time.">
+    
+    <!-- SEO Meta Tags -->
+    <title>CyberPing - AI-Powered API Monitoring & Observability Platform | Real-Time Performance Analytics</title>
+    <meta name="description" content="Enterprise API monitoring with AI-driven insights. Track latency, uptime, and performance across 50+ global regions. Synthetic monitoring, distributed tracing, and real-time observability for microservices, REST APIs, GraphQL, and serverless functions. Start free trial.">
+    <meta name="keywords" content="API monitoring, observability platform, synthetic monitoring, API performance testing, distributed tracing, microservices monitoring, real-time analytics, API latency monitoring, uptime monitoring, SLA monitoring, serverless monitoring, cloud API testing, GraphQL monitoring, REST API monitoring, application performance monitoring, APM, site reliability engineering, DevOps monitoring, production monitoring, API health checks, endpoint monitoring, global load testing, network performance monitoring, API reliability, continuous monitoring, infrastructure monitoring, cloud native observability, OpenTelemetry, API gateway monitoring, webhook monitoring, real user monitoring, RUM">
+    
+    <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://cyberping.io">
+    <meta property="og:title" content="CyberPing - AI-Powered API Monitoring & Observability Platform">
+    <meta property="og:description" content="Enterprise API monitoring with AI-driven insights. Track latency, uptime, and performance across 50+ global regions. Synthetic monitoring, distributed tracing, and real-time observability for modern APIs.">
+    <meta property="og:image" content="https://cyberping.io/og-image.jpg">
+    
+    <!-- Twitter -->
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="CyberPing - Multi-Region API Latency Monitoring">
-    <meta name="twitter:description" content="Monitor your API latency performance across multiple global regions in real-time.">
+    <meta name="twitter:url" content="https://cyberping.io">
+    <meta name="twitter:title" content="CyberPing - AI-Powered API Monitoring & Observability">
+    <meta name="twitter:description" content="Enterprise API monitoring with AI-driven insights. Track performance across 50+ global regions with synthetic monitoring and distributed tracing.">
+    <meta name="twitter:image" content="https://cyberping.io/twitter-image.jpg">
+    
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://cyberping.io" />
+    
+    <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
-    <link href="/src/main.css" rel="stylesheet" />
+    
+    <!-- Phosphor Icons -->
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+    
+    <!-- Structured Data (Schema.org) -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "SoftwareApplication",
+        "name": "CyberPing",
+        "applicationCategory": "DeveloperApplication",
+        "operatingSystem": "Web",
+        "offers": {
+            "@type": "AggregateOffer",
+            "lowPrice": "0",
+            "highPrice": "149",
+            "priceCurrency": "USD",
+            "priceSpecification": {
+                "@type": "UnitPriceSpecification",
+                "billingDuration": "P1M"
+            }
+        },
+        "aggregateRating": {
+            "@type": "AggregateRating",
+            "ratingValue": "4.9",
+            "ratingCount": "847"
+        },
+        "description": "AI-powered API monitoring and observability platform. Track latency, uptime, and performance across 50+ global regions with synthetic monitoring, distributed tracing, and real-time analytics.",
+        "url": "https://cyberping.io",
+        "screenshot": "https://cyberping.io/screenshot.jpg",
+        "featureList": [
+            "Global Synthetic Monitoring",
+            "AI-Powered Insights",
+            "Distributed Tracing",
+            "Real User Monitoring (RUM)",
+            "Intelligent Alerting",
+            "OpenTelemetry Integration",
+            "SLA & Compliance Monitoring"
+        ]
+    }
+    </script>
+    
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Organization",
+        "name": "CyberPing",
+        "url": "https://cyberping.io",
+        "logo": "https://cyberping.io/logo.png",
+        "description": "Enterprise API monitoring and observability platform for DevOps and SRE teams",
+        "sameAs": [
+            "https://twitter.com/cyberping",
+            "https://github.com/cyberping",
+            "https://linkedin.com/company/cyberping"
+        ],
+        "contactPoint": {
+            "@type": "ContactPoint",
+            "contactType": "Customer Support",
+            "email": "support@cyberping.io",
+            "availableLanguage": ["English"]
+        }
+    }
+    </script>
+    
+    <link rel="stylesheet" href="styles.css">
 </head>
-
 <body>
-    <div id="root"></div>
-    <script type="module" src="/src/main.tsx"></script>
-</body>
+    <!-- Navigation -->
+    <nav id="main-nav" class="nav">
+        <div class="container nav-container">
+            <div class="nav-brand">
+                <div class="logo">
+                    <span class="logo-icon">C</span>
+                </div>
+                <span class="brand-name">CyberPing</span>
+            </div>
+            
+            <div class="nav-links">
+                <a href="#features" class="nav-link">Features</a>
+                <a href="#pricing" class="nav-link">Pricing</a>
+                <a href="#docs" class="nav-link">Docs</a>
+                <a href="#blog" class="nav-link">Blog</a>
+            </div>
+            
+            <div class="nav-actions">
+                <button class="btn btn-ghost">Sign In</button>
+                <button class="btn btn-primary">Start Free Trial</button>
+            </div>
+            
+            <button class="mobile-menu-btn" id="mobile-menu-btn" aria-label="Toggle mobile menu">
+                <i class="ph ph-list"></i>
+            </button>
+        </div>
+        
+        <div class="mobile-menu" id="mobile-menu">
+            <div class="container mobile-menu-content">
+                <a href="#features" class="mobile-nav-link">Features</a>
+                <a href="#pricing" class="mobile-nav-link">Pricing</a>
+                <a href="#docs" class="mobile-nav-link">Docs</a>
+                <a href="#blog" class="mobile-nav-link">Blog</a>
+                <div class="mobile-actions">
+                    <button class="btn btn-outline btn-full">Sign In</button>
+                    <button class="btn btn-primary btn-full">Start Free Trial</button>
+                </div>
+            </div>
+        </div>
+    </nav>
 
+    <main>
+        <!-- Hero Section -->
+        <section class="hero" id="hero">
+            <div class="gradient-mesh"></div>
+            
+            <div class="container hero-container">
+                <div class="hero-content">
+                    <div class="hero-badge">
+                        <span class="pulse-dot"></span>
+                        AI-powered observability & synthetic monitoring
+                    </div>
+                    
+                    <h1 class="hero-title">
+                        Next-Gen API Monitoring
+                        <span class="accent-text">for Modern DevOps Teams</span>
+                    </h1>
+                    
+                    <p class="hero-description">
+                        Enterprise-grade API observability with AI-driven insights. Monitor REST, GraphQL, and serverless APIs across 50+ global regions. Get real-time latency analytics, distributed tracing, and intelligent alerting for microservices and cloud-native applications.
+                    </p>
+                    
+                    <div class="hero-cta">
+                        <button class="btn btn-primary btn-lg">
+                            Start Free Trial
+                            <i class="ph ph-arrow-right"></i>
+                        </button>
+                        <button class="btn btn-outline btn-lg">
+                            <i class="ph-fill ph-play"></i>
+                            Watch Demo
+                        </button>
+                    </div>
+                    
+                    <div class="hero-stats">
+                        <div class="stat">
+                            <div class="stat-value">50+</div>
+                            <div class="stat-label">Global Regions</div>
+                        </div>
+                        <div class="stat-divider"></div>
+                        <div class="stat">
+                            <div class="stat-value">99.9%</div>
+                            <div class="stat-label">Uptime SLA</div>
+                        </div>
+                        <div class="stat-divider"></div>
+                        <div class="stat">
+                            <div class="stat-value">&lt;100ms</div>
+                            <div class="stat-label">Avg Response</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="hero-visual">
+                    <div class="globe-container">
+                        <canvas id="globe-canvas"></canvas>
+                        <div class="location-markers" id="location-markers"></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Social Proof -->
+        <section class="social-proof">
+            <div class="container">
+                <p class="social-proof-text">Trusted by leading companies worldwide</p>
+                
+                <div class="companies-grid">
+                    <div class="company-logo">S</div>
+                    <div class="company-logo">▲</div>
+                    <div class="company-logo">G</div>
+                    <div class="company-logo">S</div>
+                    <div class="company-logo">A</div>
+                    <div class="company-logo">T</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Features Section -->
+        <section id="features" class="features">
+            <div class="container">
+                <div class="section-header">
+                    <h2 class="section-title">Everything you need for API observability & performance</h2>
+                    <p class="section-description">Enterprise features for DevOps, SRE teams, and cloud-native applications</p>
+                </div>
+                
+                <div class="features-grid">
+                    <article class="feature-card">
+                        <div class="feature-icon">
+                            <i class="ph-duotone ph-globe-hemisphere-west"></i>
+                        </div>
+                        <h3 class="feature-title">Global Synthetic Monitoring</h3>
+                        <p class="feature-description">Run synthetic tests from 50+ edge locations worldwide. Simulate user behavior, test API endpoints, and monitor performance with millisecond precision across continents.</p>
+                    </article>
+                    
+                    <article class="feature-card">
+                        <div class="feature-icon">
+                            <i class="ph-duotone ph-lightning"></i>
+                        </div>
+                        <h3 class="feature-title">AI-Powered Insights</h3>
+                        <p class="feature-description">Machine learning algorithms detect anomalies, predict outages, and provide intelligent recommendations. Get proactive alerts before issues impact users.</p>
+                    </article>
+                    
+                    <article class="feature-card">
+                        <div class="feature-icon">
+                            <i class="ph-duotone ph-chart-line"></i>
+                        </div>
+                        <h3 class="feature-title">Distributed Tracing</h3>
+                        <p class="feature-description">Full observability with OpenTelemetry integration. Trace requests across microservices, identify bottlenecks, and optimize your distributed architecture.</p>
+                    </article>
+                    
+                    <article class="feature-card">
+                        <div class="feature-icon">
+                            <i class="ph-duotone ph-shield"></i>
+                        </div>
+                        <h3 class="feature-title">SLA & Compliance Monitoring</h3>
+                        <p class="feature-description">Track SLOs, SLIs, and SLAs with detailed reports. SOC 2, GDPR, and HIPAA compliant monitoring with enterprise-grade security and data residency options.</p>
+                    </article>
+                    
+                    <article class="feature-card">
+                        <div class="feature-icon">
+                            <i class="ph-duotone ph-clock"></i>
+                        </div>
+                        <h3 class="feature-title">Real User Monitoring (RUM)</h3>
+                        <p class="feature-description">Capture actual user experience data. Monitor Core Web Vitals, API response times, and frontend performance from real devices and browsers worldwide.</p>
+                    </article>
+                    
+                    <article class="feature-card">
+                        <div class="feature-icon">
+                            <i class="ph-duotone ph-bell-ringing"></i>
+                        </div>
+                        <h3 class="feature-title">Intelligent Alerting & Incident Management</h3>
+                        <p class="feature-description">Context-aware alerts via Slack, PagerDuty, MS Teams, and webhooks. Automated incident detection with customizable escalation policies and on-call scheduling.</p>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- Testimonials -->
+        <section class="testimonials">
+            <div class="gradient-mesh"></div>
+            
+            <div class="container">
+                <div class="section-header">
+                    <div class="section-badge">Testimonials</div>
+                    <h2 class="section-title">
+                        Trusted by DevOps & SRE Teams
+                        <span class="accent-text">at Scale</span>
+                    </h2>
+                    <p class="section-description">See how engineering teams use CyberPing for API observability and performance optimization</p>
+                </div>
+
+                <div class="testimonials-grid">
+                    <article class="testimonial-card">
+                        <i class="ph-fill ph-quotes testimonial-icon"></i>
+                        <blockquote class="testimonial-quote">
+                            <p>CyberPing's AI-powered observability helped us achieve sub-50ms P99 latency across all regions. The distributed tracing integration with our microservices architecture is game-changing.</p>
+                        </blockquote>
+                        <div class="testimonial-author">
+                            <div class="author-avatar gradient-blue">SC</div>
+                            <div class="author-info">
+                                <div class="author-name">Sarah Chen</div>
+                                <div class="author-role">VP Engineering, TechFlow</div>
+                            </div>
+                        </div>
+                    </article>
+                    
+                    <article class="testimonial-card">
+                        <i class="ph-fill ph-quotes testimonial-icon"></i>
+                        <blockquote class="testimonial-quote">
+                            <p>We reduced MTTR by 60% with CyberPing's intelligent alerting and anomaly detection. The synthetic monitoring catches issues before our customers even notice them.</p>
+                        </blockquote>
+                        <div class="testimonial-author">
+                            <div class="author-avatar gradient-purple">MR</div>
+                            <div class="author-info">
+                                <div class="author-name">Michael Rodriguez</div>
+                                <div class="author-role">SRE Lead, DataStream</div>
+                            </div>
+                        </div>
+                    </article>
+                    
+                    <article class="testimonial-card">
+                        <i class="ph-fill ph-quotes testimonial-icon"></i>
+                        <blockquote class="testimonial-quote">
+                            <p>The OpenTelemetry integration made migration seamless. Real-time observability across our serverless architecture with zero code changes. Perfect for cloud-native teams.</p>
+                        </blockquote>
+                        <div class="testimonial-author">
+                            <div class="author-avatar gradient-orange">EW</div>
+                            <div class="author-info">
+                                <div class="author-name">Emily Watson</div>
+                                <div class="author-role">Lead DevOps, CloudNine</div>
+                            </div>
+                        </div>
+                    </article>
+                    
+                    <article class="testimonial-card">
+                        <i class="ph-fill ph-quotes testimonial-icon"></i>
+                        <blockquote class="testimonial-quote">
+                            <p>Best-in-class API monitoring with comprehensive SLA tracking. The compliance reports saved us weeks during our SOC 2 audit. Essential for enterprise environments.</p>
+                        </blockquote>
+                        <div class="testimonial-author">
+                            <div class="author-avatar gradient-green">DK</div>
+                            <div class="author-info">
+                                <div class="author-name">David Kim</div>
+                                <div class="author-role">Principal Architect, ApiHub</div>
+                            </div>
+                        </div>
+                    </article>
+                    
+                    <article class="testimonial-card">
+                        <i class="ph-fill ph-quotes testimonial-icon"></i>
+                        <blockquote class="testimonial-quote">
+                            <p>The RUM and synthetic monitoring combo gives us complete visibility. We optimized our GraphQL APIs and improved Core Web Vitals by 40% using CyberPing's insights.</p>
+                        </blockquote>
+                        <div class="testimonial-author">
+                            <div class="author-avatar gradient-indigo">LA</div>
+                            <div class="author-info">
+                                <div class="author-name">Lisa Anderson</div>
+                                <div class="author-role">Head of Platform, GlobalTech</div>
+                            </div>
+                        </div>
+                    </article>
+                    
+                    <article class="testimonial-card">
+                        <i class="ph-fill ph-quotes testimonial-icon"></i>
+                        <blockquote class="testimonial-quote">
+                            <p>Migrated from legacy APM tools to CyberPing in days. The modern UI, AI-driven alerts, and comprehensive API support make it the obvious choice for 2025 and beyond.</p>
+                        </blockquote>
+                        <div class="testimonial-author">
+                            <div class="author-avatar gradient-teal">JP</div>
+                            <div class="author-info">
+                                <div class="author-name">James Park</div>
+                                <div class="author-role">Director of Engineering, DevTools Pro</div>
+                            </div>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- Pricing Section -->
+        <section id="pricing" class="pricing">
+            <div class="container">
+                <div class="section-header">
+                    <h2 class="section-title">Transparent pricing for teams of all sizes</h2>
+                    <p class="section-description">From startups to enterprises. Start free, scale as you grow. All paid plans include 14-day free trial.</p>
+                </div>
+                
+                <div class="pricing-grid">
+                    <article class="pricing-card">
+                        <h3 class="pricing-name">Developer</h3>
+                        <p class="pricing-description">Perfect for side projects and testing</p>
+                        <div class="pricing-price">
+                            <span class="price-currency">$</span>
+                            <span class="price-amount">0</span>
+                            <span class="price-period">/month</span>
+                        </div>
+                        <ul class="pricing-features">
+                            <li><i class="ph-fill ph-check-circle"></i><span>5 API endpoints</span></li>
+                            <li><i class="ph-fill ph-check-circle"></i><span>5 monitoring regions</span></li>
+                            <li><i class="ph-fill ph-check-circle"></i><span>10-minute check intervals</span></li>
+                            <li><i class="ph-fill ph-check-circle"></i><span>Email alerts</span></li>
+                            <li><i class="ph-fill ph-check-circle"></i><span>24-hour data retention</span></li>
+                            <li><i class="ph-fill ph-check-circle"></i><span>Community support</span></li>
+                        </ul>
+                        <button class="btn btn-outline btn-full">Start Free</button>
+                    </article>
+                    
+                    <article class="pricing-card">
+                        <h3 class="pricing-name">Startup</h3>
+                        <p class="pricing-description">For growing teams & production apps</p>
+                        <div class="pricing-price">
+                            <span class="price-currency">$</span>
+                            <span class="price-amount">49</span>
+                            <span class="price-period">/month</span>
+                        </div>
+                        <ul class="pricing-features">
+                            <li><i class="ph-fill ph-check-circle"></i><span>25 API endpoints</span></li>
+                            <li><i class="ph-fill ph-check-circle"></i><span>15 global regions</span></li>
+                            <li><i class="ph-fill ph-check-circle"></i><span>3-minute intervals</span></li>
+                            <li><i class="ph-fill ph-check-circle"></i><span>Slack & email alerts</span></li>
+                            <li><i class="ph-fill ph-check-circle"></i><span>30-day retention</span></li>
+                            <li><i class="ph-fill ph-check-circle"></i><span>Basic RUM & synthetic monitoring</span></li>
+                        </ul>
+                        <button class="btn btn-outline btn-full">Start Trial</button>
+                    </article>
+                    
+                    <article class="pricing-card pricing-card-popular">
+                        <div class="popular-badge">Most Popular</div>
+                        <h3 class="pricing-name">Professional</h3>
+                        <p class="pricing-description">Complete observability for scale-ups</p>
+                        <div class="pricing-price">
+                            <span class="price-currency">$</span>
+                            <span class="price-amount">149</span>
+                            <span class="price-period">/month</span>
+                        </div>
+                        <ul class="pricing-features">
+                            <li><i class="ph-fill ph-check-circle"></i><span>100 API endpoints</span></li>
+                            <li><i class="ph-fill ph-check-circle"></i><span>30 global regions</span></li>
+                            <li><i class="ph-fill ph-check-circle"></i><span>1-minute intervals</span></li>
+                            <li><i class="ph-fill ph-check-circle"></i><span>All integrations (PagerDuty, MS Teams)</span></li>
+                            <li><i class="ph-fill ph-check-circle"></i><span>90-day retention</span></li>
+                            <li><i class="ph-fill ph-check-circle"></i><span>Advanced RUM & distributed tracing</span></li>
+                            <li><i class="ph-fill ph-check-circle"></i><span>AI-powered anomaly detection</span></li>
+                            <li><i class="ph-fill ph-check-circle"></i><span>API access & custom dashboards</span></li>
+                        </ul>
+                        <button class="btn btn-primary btn-full">Start Trial</button>
+                    </article>
+                    
+                    <article class="pricing-card">
+                        <h3 class="pricing-name">Enterprise</h3>
+                        <p class="pricing-description">For mission-critical infrastructure</p>
+                        <div class="pricing-price">
+                            <span class="price-amount">Custom</span>
+                        </div>
+                        <ul class="pricing-features">
+                            <li><i class="ph-fill ph-check-circle"></i><span>Unlimited endpoints</span></li>
+                            <li><i class="ph-fill ph-check-circle"></i><span>50+ global regions</span></li>
+                            <li><i class="ph-fill ph-check-circle"></i><span>10-second intervals</span></li>
+                            <li><i class="ph-fill ph-check-circle"></i><span>All channels + webhooks</span></li>
+                            <li><i class="ph-fill ph-check-circle"></i><span>Unlimited retention</span></li>
+                            <li><i class="ph-fill ph-check-circle"></i><span>Full OpenTelemetry support</span></li>
+                            <li><i class="ph-fill ph-check-circle"></i><span>White-label & custom branding</span></li>
+                            <li><i class="ph-fill ph-check-circle"></i><span>SSO, RBAC & audit logs</span></li>
+                            <li><i class="ph-fill ph-check-circle"></i><span>99.99% SLA + 24/7 support</span></li>
+                        </ul>
+                        <button class="btn btn-outline btn-full">Contact Sales</button>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA Section -->
+        <section class="cta">
+            <div class="container">
+                <div class="cta-content">
+                    <h2 class="cta-title">Ready for production-grade API observability?</h2>
+                    <p class="cta-description">Join 10,000+ DevOps and SRE teams monitoring critical APIs with CyberPing. Start your free 14-day trial—no credit card required.</p>
+                    
+                    <div class="cta-buttons">
+                        <button class="btn btn-primary btn-lg">
+                            Start Free Trial
+                            <i class="ph ph-arrow-right"></i>
+                        </button>
+                        <button class="btn btn-outline btn-lg">Schedule Demo</button>
+                    </div>
+                    
+                    <p class="cta-note">No credit card required • Free 14-day trial • Cancel anytime</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <h3 class="footer-brand-name">CyberPing</h3>
+                    <p class="footer-brand-description">AI-powered API monitoring and observability platform. Track performance, latency, and uptime across 50+ global regions with enterprise-grade reliability.</p>
+                    <div class="footer-social">
+                        <a href="#" class="social-link" aria-label="Twitter"><i class="ph-fill ph-twitter-logo"></i></a>
+                        <a href="#" class="social-link" aria-label="GitHub"><i class="ph-fill ph-github-logo"></i></a>
+                        <a href="#" class="social-link" aria-label="LinkedIn"><i class="ph-fill ph-linkedin-logo"></i></a>
+                    </div>
+                </div>
+                
+                <div class="footer-links">
+                    <h4 class="footer-links-title">Product</h4>
+                    <ul>
+                        <li><a href="#features">Features</a></li>
+                        <li><a href="#pricing">Pricing</a></li>
+                        <li><a href="#docs">Documentation</a></li>
+                        <li><a href="#api">API Reference</a></li>
+                        <li><a href="#status">Status Page</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-links">
+                    <h4 class="footer-links-title">Company</h4>
+                    <ul>
+                        <li><a href="#about">About</a></li>
+                        <li><a href="#blog">Blog</a></li>
+                        <li><a href="#careers">Careers</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-links">
+                    <h4 class="footer-links-title">Resources</h4>
+                    <ul>
+                        <li><a href="#support">Support</a></li>
+                        <li><a href="#community">Community</a></li>
+                        <li><a href="#guides">Guides</a></li>
+                        <li><a href="#api-status">API Status</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-links">
+                    <h4 class="footer-links-title">Legal</h4>
+                    <ul>
+                        <li><a href="#privacy">Privacy Policy</a></li>
+                        <li><a href="#terms">Terms of Service</a></li>
+                        <li><a href="#cookies">Cookie Policy</a></li>
+                        <li><a href="#gdpr">GDPR</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p class="footer-copyright">© 2025 CyberPing.io. All rights reserved.</p>
+                <div class="footer-bottom-links">
+                    <a href="#privacy">Privacy</a>
+                    <span>•</span>
+                    <a href="#terms">Terms</a>
+                    <span>•</span>
+                    <a href="#sitemap">Sitemap</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="app.js"></script>
+</body>
 </html>
