@@ -474,6 +474,7 @@ img {
 .location-marker {
     position: absolute;
     transform: translate(-50%, -50%);
+    cursor: pointer;
 }
 
 .marker-dot {
@@ -482,6 +483,7 @@ img {
     background-color: var(--color-accent);
     border-radius: 50%;
     animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+    transition: var(--transition);
 }
 
 .marker-ping {
@@ -499,19 +501,32 @@ img {
     position: absolute;
     top: 1rem;
     left: 50%;
-    transform: translateX(-50%);
+    transform: translateX(-50%) scale(0.9);
     white-space: nowrap;
-    display: none;
+    opacity: 0;
+    pointer-events: none;
     font-size: 0.75rem;
     font-weight: 500;
     color: var(--color-foreground);
-    background-color: rgba(255, 255, 255, 0.9);
+    background-color: rgba(255, 255, 255, 0.95);
     backdrop-filter: blur(8px);
     -webkit-backdrop-filter: blur(8px);
     padding: 0.25rem 0.5rem;
     border-radius: 0.25rem;
     border: 1px solid var(--color-border);
     box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+    transition: opacity 0.2s ease, transform 0.2s ease;
+    z-index: 10;
+}
+
+.location-marker:hover .marker-label {
+    opacity: 1;
+    transform: translateX(-50%) scale(1);
+}
+
+.location-marker:hover .marker-dot {
+    transform: scale(1.2);
+    box-shadow: 0 0 12px rgba(59, 130, 246, 0.5);
 }
 
 @media (prefers-color-scheme: dark) {
@@ -521,10 +536,6 @@ img {
 }
 
 @media (min-width: 640px) {
-    .marker-label {
-        display: block;
-    }
-    
     .hero-cta {
         flex-direction: row;
     }
