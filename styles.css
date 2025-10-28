@@ -48,6 +48,7 @@
 
 html {
     scroll-behavior: smooth;
+    overflow-x: hidden;
 }
 
 body {
@@ -57,6 +58,8 @@ body {
     line-height: 1.6;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+    overflow-x: hidden;
+    width: 100%;
 }
 
 img {
@@ -68,7 +71,8 @@ img {
 .container {
     max-width: 1280px;
     margin: 0 auto;
-    padding: 0 1rem;
+    padding: 0 1.25rem;
+    width: 100%;
 }
 
 @media (min-width: 640px) {
@@ -333,12 +337,7 @@ img {
     overflow: hidden;
     padding-top: 4rem;
     padding-bottom: 2rem;
-}
-
-@media (min-width: 768px) {
-    .hero {
-        padding-bottom: 0;
-    }
+    width: 100%;
 }
 
 .gradient-mesh {
@@ -348,6 +347,7 @@ img {
                 radial-gradient(circle at 80% 80%, rgba(168, 85, 247, 0.1) 0%, transparent 50%),
                 radial-gradient(circle at 40% 20%, rgba(6, 182, 212, 0.1) 0%, transparent 50%);
     z-index: 0;
+    width: 100%;
 }
 
 .hero-container {
@@ -357,6 +357,7 @@ img {
     display: grid;
     gap: 2rem;
     align-items: center;
+    width: 100%;
 }
 
 @media (min-width: 640px) {
@@ -366,10 +367,17 @@ img {
     }
 }
 
+@media (min-width: 768px) {
+    .hero {
+        padding-bottom: 0;
+    }
+}
+
 .hero-content {
     display: flex;
     flex-direction: column;
     gap: 1.25rem;
+    width: 100%;
 }
 
 @media (min-width: 640px) {
@@ -1457,12 +1465,27 @@ section.animate-in,
     /* Prevent horizontal scroll */
     body {
         overflow-x: hidden;
+        max-width: 100vw;
+    }
+    
+    /* Ensure all containers stay within bounds */
+    .container {
+        max-width: 100%;
     }
     
     /* Better text wrapping */
     h1, h2, h3, h4, h5, h6 {
         word-wrap: break-word;
         overflow-wrap: break-word;
+        hyphens: auto;
+    }
+    
+    /* Prevent text cutoff on left side */
+    .hero-title,
+    .section-title,
+    .cta-title {
+        padding-left: 0;
+        margin-left: 0;
     }
     
     /* Hide stat dividers on very small screens */
@@ -1495,6 +1518,12 @@ section.animate-in,
         width: 3rem;
         height: 3rem;
         font-size: 1rem;
+    }
+    
+    /* Ensure all sections respect padding */
+    section {
+        width: 100%;
+        max-width: 100%;
     }
 }
 
