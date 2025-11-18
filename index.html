@@ -97,6 +97,15 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
+    <!-- Announcement -->
+    <div class="announcement-bar">
+        <div class="container announcement-content">
+            <span class="announcement-pill">New</span>
+            <p>Adaptive anomaly guardrails just launched. Ship faster with AI-assisted incident response.</p>
+            <a href="#blog" class="announcement-link">See what's new →</a>
+        </div>
+    </div>
+
     <!-- Navigation -->
     <nav id="main-nav" class="nav">
         <div class="container nav-container">
@@ -159,6 +168,12 @@
                         Enterprise-grade API observability with AI-driven insights. Monitor REST, GraphQL, and serverless APIs across 50+ global regions. Get real-time latency analytics, distributed tracing, and intelligent alerting for microservices and cloud-native applications.
                     </p>
                     
+                    <ul class="hero-pill-group">
+                        <li class="hero-pill">OpenTelemetry native</li>
+                        <li class="hero-pill">Global synthetic checks</li>
+                        <li class="hero-pill">Adaptive alert routing</li>
+                    </ul>
+                    
                     <div class="hero-cta">
                         <button class="btn btn-primary btn-lg">
                             Start Free Trial
@@ -169,22 +184,50 @@
                             Watch Demo
                         </button>
                     </div>
+
+                    <div class="hero-metrics-card">
+                        <div class="metric">
+                            <span class="metric-label">P99 latency</span>
+                            <span class="metric-value counter" data-counter data-target="42" data-suffix="ms">0</span>
+                            <span class="metric-trend positive">-18% vs last week</span>
+                        </div>
+                        <div class="metric">
+                            <span class="metric-label">Automated incidents</span>
+                            <span class="metric-value counter" data-counter data-target="37">0</span>
+                            <span class="metric-trend neutral">AI triaged</span>
+                        </div>
+                        <div class="metric">
+                            <span class="metric-label">Uptime guarantee</span>
+                            <span class="metric-value counter" data-counter data-target="99.99" data-decimals="2" data-suffix="%">0</span>
+                            <span class="metric-trend">multi-region</span>
+                        </div>
+                    </div>
                     
                     <div class="hero-stats">
                         <div class="stat">
-                            <div class="stat-value">50+</div>
+                            <div class="stat-value counter" data-counter data-target="50" data-suffix="+">0</div>
                             <div class="stat-label">Global Regions</div>
                         </div>
                         <div class="stat-divider"></div>
                         <div class="stat">
-                            <div class="stat-value">99.9%</div>
+                            <div class="stat-value counter" data-counter data-target="99.9" data-decimals="1" data-suffix="%">0</div>
                             <div class="stat-label">Uptime SLA</div>
                         </div>
                         <div class="stat-divider"></div>
                         <div class="stat">
-                            <div class="stat-value">&lt;100ms</div>
+                            <div class="stat-value counter" data-counter data-target="92" data-suffix="ms">0</div>
                             <div class="stat-label">Avg Response</div>
                         </div>
+                    </div>
+
+                    <div class="hero-integrations">
+                        <span class="integrations-label">Connects with</span>
+                        <ul class="integrations-list">
+                            <li>PagerDuty</li>
+                            <li>Datadog</li>
+                            <li>Slack</li>
+                            <li>Grafana</li>
+                        </ul>
                     </div>
                 </div>
                 
@@ -193,6 +236,48 @@
                         <canvas id="globe-canvas"></canvas>
                         <div class="location-markers" id="location-markers"></div>
                     </div>
+
+                    <div class="hero-visual-card">
+                        <div class="visual-card-header">
+                            <span class="visual-card-title">Global SLA health</span>
+                            <span class="visual-card-tag">Live</span>
+                        </div>
+                        <div class="visual-card-grid">
+                            <div>
+                                <p class="visual-label">Regions green</p>
+                                <p class="visual-value"><span class="counter" data-counter data-target="47">0</span><span>/50</span></p>
+                            </div>
+                            <div>
+                                <p class="visual-label">Avg jitter</p>
+                                <p class="visual-value"><span class="counter" data-counter data-target="8.2" data-decimals="1" data-suffix="ms">0</span></p>
+                            </div>
+                            <div>
+                                <p class="visual-label">Synthetic checks</p>
+                                <p class="visual-value"><span class="counter" data-counter data-target="1.2" data-decimals="1" data-suffix="M/day">0</span></p>
+                            </div>
+                            <div>
+                                <p class="visual-label">AI actions</p>
+                                <p class="visual-value"><span class="counter" data-counter data-target="124">0</span></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="signal-strip" aria-label="Realtime observability feed">
+            <div class="marquee-mask">
+                <div class="marquee-track">
+                    <span>↺ 820k distributed traces processed / min</span>
+                    <span>▲ 42% faster MTTR for teams on Professional tier</span>
+                    <span>◎ 9.6/10 platform satisfaction score</span>
+                    <span>⚡ 1.2M synthetic checks executed in last hour</span>
+                    <span>☁︎ 310 serverless endpoints monitored</span>
+                    <span>↺ 820k distributed traces processed / min</span>
+                    <span>▲ 42% faster MTTR for teams on Professional tier</span>
+                    <span>◎ 9.6/10 platform satisfaction score</span>
+                    <span>⚡ 1.2M synthetic checks executed in last hour</span>
+                    <span>☁︎ 310 serverless endpoints monitored</span>
                 </div>
             </div>
         </section>
@@ -268,6 +353,36 @@
                         </div>
                         <h3 class="feature-title">Intelligent Alerting & Incident Management</h3>
                         <p class="feature-description">Context-aware alerts via Slack, PagerDuty, MS Teams, and webhooks. Automated incident detection with customizable escalation policies and on-call scheduling.</p>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <section id="docs" class="docs-preview">
+            <div class="container">
+                <div class="section-header section-header-left">
+                    <div class="section-badge">Docs & Playbooks</div>
+                    <h2 class="section-title">Launch-ready templates for your team</h2>
+                    <p class="section-description">Cut onboarding time with curated runbooks, Terraform snippets, and integration quickstarts.</p>
+                </div>
+                <div class="docs-grid">
+                    <article class="doc-card">
+                        <span class="doc-pill">Guide</span>
+                        <h3>Instrument APIs with OpenTelemetry</h3>
+                        <p>Step-by-step walkthrough plus sample dashboards for REST, gRPC, and GraphQL workloads.</p>
+                        <a href="#" class="doc-link">Read guide</a>
+                    </article>
+                    <article class="doc-card">
+                        <span class="doc-pill">Playbook</span>
+                        <h3>Incident response automation</h3>
+                        <p>Pre-built PagerDuty and Slack workflows with configurable guardrails and AI summaries.</p>
+                        <a href="#" class="doc-link">Open playbook</a>
+                    </article>
+                    <article class="doc-card">
+                        <span class="doc-pill">API</span>
+                        <h3>Telemetry ingestion API</h3>
+                        <p>cURL-ready examples, SDK links, and rate-limit guidance for high-volume teams.</p>
+                        <a href="#" class="doc-link">Explore reference</a>
                     </article>
                 </div>
             </div>
@@ -375,12 +490,59 @@
             </div>
         </section>
 
+        <section id="blog" class="insights-feed">
+            <div class="container">
+                <div class="section-header section-header-left">
+                    <div class="section-badge">From the blog</div>
+                    <h2 class="section-title">Practical observability insights</h2>
+                    <p class="section-description">Fresh tactics for DevOps, SRE, and platform teams building resilient APIs.</p>
+                </div>
+                <div class="insights-grid">
+                    <article class="insight-card">
+                        <div class="insight-meta">
+                            <span>Playbook</span>
+                            <span>8 min read</span>
+                        </div>
+                        <h3>Designing multi-region SLAs with adaptive budgets</h3>
+                        <p>Learn how CyberPing blends synthetic and RUM data to protect latency budgets for globally distributed users.</p>
+                        <a href="#" class="insight-link">Read article</a>
+                    </article>
+                    <article class="insight-card">
+                        <div class="insight-meta">
+                            <span>Deep Dive</span>
+                            <span>12 min read</span>
+                        </div>
+                        <h3>How AI copilots accelerate incident response</h3>
+                        <p>See how teams stitch LLM summaries, runbooks, and guardrails to cut MTTR in half.</p>
+                        <a href="#" class="insight-link">Dive in</a>
+                    </article>
+                    <article class="insight-card">
+                        <div class="insight-meta">
+                            <span>Changelog</span>
+                            <span>5 min read</span>
+                        </div>
+                        <h3>May 2025 release: adaptive anomaly guardrails</h3>
+                        <p>Discover the newest enhancements to anomaly models, Terraform resources, and access controls.</p>
+                        <a href="#" class="insight-link">View changelog</a>
+                    </article>
+                </div>
+            </div>
+        </section>
+
         <!-- Pricing Section -->
         <section id="pricing" class="pricing">
             <div class="container">
                 <div class="section-header">
                     <h2 class="section-title">Transparent pricing for teams of all sizes</h2>
                     <p class="section-description">From startups to enterprises. Start free, scale as you grow. All paid plans include 14-day free trial.</p>
+                </div>
+
+                <div class="pricing-toggle" role="group" aria-label="Billing frequency">
+                    <span class="toggle-label">Monthly</span>
+                    <button class="toggle-switch" id="billing-toggle" type="button" aria-pressed="false">
+                        <span class="toggle-handle"></span>
+                    </button>
+                    <span class="toggle-label">Annual <span class="toggle-save">Save 20%</span></span>
                 </div>
                 
                 <div class="pricing-grid">
@@ -389,8 +551,8 @@
                         <p class="pricing-description">Perfect for side projects and testing</p>
                         <div class="pricing-price">
                             <span class="price-currency">$</span>
-                            <span class="price-amount">0</span>
-                            <span class="price-period">/month</span>
+                            <span class="price-amount counter" data-counter data-target="0" data-plan="developer" data-monthly="0" data-annual="0">0</span>
+                            <span class="price-period" data-billing-period>/month</span>
                         </div>
                         <ul class="pricing-features">
                             <li><i class="ph-fill ph-check-circle"></i><span>5 API endpoints</span></li>
@@ -408,8 +570,8 @@
                         <p class="pricing-description">For growing teams & production apps</p>
                         <div class="pricing-price">
                             <span class="price-currency">$</span>
-                            <span class="price-amount">49</span>
-                            <span class="price-period">/month</span>
+                            <span class="price-amount counter" data-counter data-target="49" data-plan="startup" data-monthly="49" data-annual="39">0</span>
+                            <span class="price-period" data-billing-period>/month</span>
                         </div>
                         <ul class="pricing-features">
                             <li><i class="ph-fill ph-check-circle"></i><span>25 API endpoints</span></li>
@@ -428,8 +590,8 @@
                         <p class="pricing-description">Complete observability for scale-ups</p>
                         <div class="pricing-price">
                             <span class="price-currency">$</span>
-                            <span class="price-amount">149</span>
-                            <span class="price-period">/month</span>
+                            <span class="price-amount counter" data-counter data-target="149" data-plan="professional" data-monthly="149" data-annual="119">0</span>
+                            <span class="price-period" data-billing-period>/month</span>
                         </div>
                         <ul class="pricing-features">
                             <li><i class="ph-fill ph-check-circle"></i><span>100 API endpoints</span></li>

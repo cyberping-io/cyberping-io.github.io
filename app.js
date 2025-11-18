@@ -213,3 +213,93 @@ pricingCards.forEach(card => {
         this.style.transform = 'translateY(0)';
     });
 });
+
+/* Animated Counters */
+function animateCounter(element) {
+    const target = parseFloat(element.dataset.target || '0');
+    const duration = parseInt(element.dataset.duration || '1500', 10);
+    const decimals = parseInt(element.dataset.decimals || '0', 10);
+    const prefix = element.dataset.prefix || '';
+    const suffix = element.dataset.suffix || '';
+    const startTimestamp = performance.now();
+
+    const step = (currentTime) => {
+        const progress = Math.min((currentTime - startTimestamp) / duration, 1);
+        const value = target * progress;
+        element.textContent = `${prefix}${value.toFixed(decimals)}${suffix}`;
+
+        if (progress < 1) {
+            requestAnimationFrame(step);
+        }
+    };
+
+    requestAnimationFrame(step);
+}
+
+function initCounters() {
+    const counterElements = document.querySelectorAll('[data-counter]');
+
+    if (!counterElements.length) {
+        return;
+    }
+
+    const counterObserver = new IntersectionObserver((entries, observer) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                const el = entry.target;
+                if (!el.dataset.animated) {
+                    el.dataset.animated = 'true';
+                    animateCounter(el);
+                }
+                observer.unobserve(el);
+            }
+        });
+    }, { threshold: 0.6 });
+
+    counterElements.forEach(el => counterObserver.observe(el));
+}
+
+/* Pricing Toggle */
+function initPricingToggle() {
+    const billingToggle = document.getElementById('billing-toggle');
+    if (!billingToggle) return;
+
+    const priceAmounts = document.querySelectorAll('.price-amount[data-plan]');
+    const billingPeriodLabels = document.querySelectorAll('[data-billing-period]');
+
+    const setBillingMode = (mode) => {
+        priceAmounts.forEach(amount => {
+            const monthly = amount.dataset.monthly;
+            const annual = amount.dataset.annual;
+            const value = (mode === 'annual' && annual !== undefined && annual !== '') ? annual : monthly;
+            if (value !== undefined) {
+                amount.textContent = value;
+            }
+        });
+
+        billingPeriodLabels.forEach(label => {
+            label.textContent = mode === 'annual' ? '/month (annual)' : '/month';
+        });
+
+        document.documentElement.setAttribute('data-billing-mode', mode);
+    };
+
+    billingToggle.addEventListener('click', () => {
+        const isActive = billingToggle.classList.toggle('active');
+        billingToggle.setAttribute('aria-pressed', isActive.toString());
+        setBillingMode(isActive ? 'annual' : 'monthly');
+    });
+
+    setBillingMode('monthly');
+}
+
+function initDynamicUI() {
+    initCounters();
+    initPricingToggle();
+}
+
+if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initDynamicUI);
+} else {
+    initDynamicUI();
+}
