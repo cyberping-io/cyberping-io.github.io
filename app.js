@@ -40,21 +40,60 @@ window.addEventListener('scroll', () => {
     lastScroll = currentScroll;
 });
 
+/* Live Latency Demo Animation */
+function initLatencyDemo() {
+    const latencyBars = document.querySelectorAll('.latency-bar-item');
+    if (!latencyBars.length) return;
+
+    const baseLatencies = [
+        { region: 'Virginia', base: 23, variance: 8 },
+        { region: 'London', base: 89, variance: 15 },
+        { region: 'Frankfurt', base: 102, variance: 12 },
+        { region: 'Tokyo', base: 156, variance: 20 },
+        { region: 'Singapore', base: 178, variance: 18 },
+        { region: 'Sydney', base: 201, variance: 25 }
+    ];
+
+    function updateLatencies() {
+        latencyBars.forEach((item, index) => {
+            if (index >= baseLatencies.length) return;
+            
+            const { base, variance } = baseLatencies[index];
+            const newLatency = base + Math.floor(Math.random() * variance * 2) - variance;
+            const bar = item.querySelector('.bar');
+            const value = item.querySelector('.latency-value');
+            
+            if (bar) {
+                bar.style.setProperty('--latency', newLatency);
+            }
+            if (value) {
+                value.textContent = `${newLatency}ms`;
+                value.setAttribute('data-latency', newLatency);
+            }
+        });
+    }
+
+    // Update every 2 seconds
+    setInterval(updateLatencies, 2000);
+}
+
 /* Globe Canvas Animation */
 const globeCanvas = document.getElementById('globe-canvas');
 const locationMarkers = document.getElementById('location-markers');
 
 const locations = [
-    { name: "San Francisco", x: 20, y: 35, delay: 0 },
-    { name: "New York", x: 30, y: 32, delay: 0.2 },
-    { name: "London", x: 49, y: 28, delay: 0.4 },
-    { name: "Frankfurt", x: 52, y: 27, delay: 0.6 },
-    { name: "Singapore", x: 75, y: 55, delay: 0.8 },
-    { name: "Tokyo", x: 80, y: 35, delay: 1.0 },
-    { name: "Sydney", x: 82, y: 75, delay: 1.2 },
-    { name: "São Paulo", x: 35, y: 72, delay: 1.4 },
-    { name: "Mumbai", x: 68, y: 52, delay: 1.6 },
-    { name: "Toronto", x: 28, y: 30, delay: 1.8 },
+    { name: "Virginia", x: 22, y: 38, delay: 0 },
+    { name: "Oregon", x: 12, y: 35, delay: 0.1 },
+    { name: "Toronto", x: 26, y: 32, delay: 0.2 },
+    { name: "São Paulo", x: 32, y: 72, delay: 0.3 },
+    { name: "London", x: 48, y: 28, delay: 0.4 },
+    { name: "Frankfurt", x: 52, y: 30, delay: 0.5 },
+    { name: "Paris", x: 50, y: 32, delay: 0.6 },
+    { name: "Singapore", x: 76, y: 58, delay: 0.7 },
+    { name: "Tokyo", x: 82, y: 35, delay: 0.8 },
+    { name: "Sydney", x: 85, y: 75, delay: 0.9 },
+    { name: "Mumbai", x: 68, y: 48, delay: 1.0 },
+    { name: "Dubai", x: 62, y: 42, delay: 1.1 },
 ];
 
 function initGlobe() {
@@ -296,6 +335,7 @@ function initPricingToggle() {
 function initDynamicUI() {
     initCounters();
     initPricingToggle();
+    initLatencyDemo();
 }
 
 if (document.readyState === 'loading') {
